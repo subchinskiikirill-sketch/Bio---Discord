@@ -27,10 +27,10 @@ body {
     filter: brightness(0.6); 
 }
 
-
+/* --- САМА КАРТОЧКА --- */
 .card {
-
-    background: linear-gradient(135deg, #1c1c1c, #0a0a0a); 
+    /* Темный, почти черный фон ВНУТРИ карточки, чтобы скрыть градиент */
+    background: #121212; 
     width: 350px;
     padding: 40px;
     border-radius: 20px;
@@ -38,24 +38,29 @@ body {
     box-shadow: 0 0 30px rgba(0,0,0,0.8);
     animation: show 1s ease;
     
+    /* Обязательно position: relative и z-index: 1 */
     position: relative; 
     z-index: 1; 
 }
 
-
+/* --- ПЕРЕЛИВАЮЩИЕСЯ БОРТИКИ КАРТОЧКИ --- */
 .card::before {
     content: "";
     position: absolute;
+    /* Толщина рамки (4 пикселя) */
     top: -4px; left: -4px; right: -4px; bottom: -4px;
     
-
-    background: linear-gradient(45deg, #ffffff, #333333, #888888, #111111, #ffffff);
+    /* Черно-серый градиент */
+    background: linear-gradient(45deg, #050505, #444444, #1a1a1a, #666666, #050505);
     background-size: 400%;
     
-    border-radius: 24px; 
+    border-radius: 24px; /* Чуть больше, чем у карточки, чтобы углы были плавными */
+    
+    /* Прячем рамку ПОД темный фон карточки */
     z-index: -1; 
-    animation: glowing-border 15s linear infinite;
-    filter: blur(1.5px); 
+    
+    /* Время увеличено до 25s, чтобы переливалось плавно и не быстро */
+    animation: glowing-border 25s linear infinite; 
 }
 
 @keyframes glowing-border {
@@ -74,7 +79,7 @@ body {
     margin-bottom: 25px;
 }
 
-
+/* --- АВАТАРКА С ЖИВОЙ БЕЛОЙ РАМКОЙ --- */
 .avatar {
     width: 120px;
     height: 120px;
@@ -82,12 +87,11 @@ body {
     object-fit: cover;
     margin-bottom: 20px;
     
-    
+    /* Белая переливающаяся рамка */
     padding: 4px; 
-  
     background: linear-gradient(45deg, #ffffff, #777777, #ffffff, #222222, #ffffff);
     background-size: 400%;
-    animation: glowing-avatar 6s linear infinite; /* Двигается чуть быстрее, чем рамка карточки */
+    animation: glowing-avatar 8s linear infinite; 
 }
 
 @keyframes glowing-avatar {
@@ -107,7 +111,7 @@ body {
     }
 }
 
-
+/* --- КНОПКИ --- */
 .buttons {
     display: flex;
     flex-direction: column;
@@ -135,7 +139,7 @@ body {
 
 .buttons i {
     position: absolute;
-    left: 20px;
+    left: 20px; /* Выравнивает иконки в одну линию слева */
     font-size: 24px;
     color: white;
 }
