@@ -27,33 +27,34 @@ body {
     filter: brightness(0.6); 
 }
 
+
 .card {
-    background: #181818; 
+
+    background: linear-gradient(135deg, #1c1c1c, #0a0a0a); 
     width: 350px;
     padding: 40px;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
     animation: show 1s ease;
+    
     position: relative; 
     z-index: 1; 
 }
 
+
 .card::before {
     content: "";
     position: absolute;
-    top: -4px; 
-    left: -4px;
-    right: -4px;
-    bottom: -4px;
+    top: -4px; left: -4px; right: -4px; bottom: -4px;
     
-    /* ИЗМЕНЕНО: Строгий черно-серый металлический градиент */
-    background: linear-gradient(45deg, #0a0a0a, #333333, #5c5c5c, #1a1a1a, #454545, #0a0a0a, #333333);
-    
+
+    background: linear-gradient(45deg, #ffffff, #333333, #888888, #111111, #ffffff);
     background-size: 400%;
+    
     border-radius: 24px; 
     z-index: -1; 
-    animation: glowing-border 20s linear infinite;
+    animation: glowing-border 15s linear infinite;
     filter: blur(1.5px); 
 }
 
@@ -73,15 +74,6 @@ body {
     margin-bottom: 25px;
 }
 
-button {
-    background: #5865F2;
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 10px;
-    font-size: 16px;
-    cursor: pointer;
-}
 
 .avatar {
     width: 120px;
@@ -89,6 +81,19 @@ button {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 20px;
+    
+    
+    padding: 4px; 
+  
+    background: linear-gradient(45deg, #ffffff, #777777, #ffffff, #222222, #ffffff);
+    background-size: 400%;
+    animation: glowing-avatar 6s linear infinite; /* Двигается чуть быстрее, чем рамка карточки */
+}
+
+@keyframes glowing-avatar {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
 }
 
 @keyframes show {
@@ -102,6 +107,7 @@ button {
     }
 }
 
+
 .buttons {
     display: flex;
     flex-direction: column;
@@ -111,7 +117,7 @@ button {
 .buttons a {
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     position: relative;
     
     background: #5865F2;
