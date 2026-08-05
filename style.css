@@ -41,7 +41,7 @@ body {
     z-index: 1; 
 }
 
-/* --- ПЕРЕЛИВАЮЩИЕСЯ БОРТИКИ КАРТОЧКИ --- */
+/* --- РАМКА КАРТОЧКИ --- */
 .card::before {
     content: "";
     position: absolute;
@@ -52,7 +52,9 @@ body {
     
     border-radius: 24px; 
     z-index: -1; 
-    animation: glowing-border 25s linear infinite; 
+    
+    /* ИЗМЕНЕНО: Время увеличено до 40 секунд (стало еще медленнее и плавнее) */
+    animation: glowing-border 40s linear infinite; 
 }
 
 @keyframes glowing-border {
@@ -71,7 +73,7 @@ body {
     margin-bottom: 25px;
 }
 
-/* --- АВАТАРКА С ЖИВОЙ БЕЛОЙ РАМКОЙ --- */
+/* --- АВАТАРКА С РАМКОЙ --- */
 .avatar {
     width: 120px;
     height: 120px;
@@ -82,7 +84,9 @@ body {
     padding: 4px; 
     background: linear-gradient(45deg, #ffffff, #777777, #ffffff, #222222, #ffffff);
     background-size: 400%;
-    animation: glowing-avatar 8s linear infinite; 
+    
+    /* ИЗМЕНЕНО: Время увеличено до 20 секунд (теперь аватарка переливается не спеша) */
+    animation: glowing-avatar 20s linear infinite; 
 }
 
 @keyframes glowing-avatar {
@@ -102,7 +106,7 @@ body {
     }
 }
 
-/* --- КНОПКИ ПОД АТМОСФЕРУ --- */
+/* --- КНОПКИ --- */
 .buttons {
     display: flex;
     flex-direction: column;
@@ -115,10 +119,9 @@ body {
     justify-content: center;
     position: relative;
     
-    /* ИЗМЕНЕНО: Темный матовый цвет вместо синего Discord */
     background: #1c1c1c; 
-    border: 1px solid #333333; /* Тонкая строгая рамка */
-    color: #e0e0e0; /* Чуть приглушенный белый текст */
+    border: 1px solid #333333;
+    color: #e0e0e0;
     
     text-decoration: none;
     padding: 12px;
@@ -126,23 +129,21 @@ body {
     transition: 0.3s;
 }
 
-/* Эффект при наведении на кнопку */
 .buttons a:hover {
     transform: scale(1.03);
-    background: #252525; /* Становится чуть светлее */
-    border-color: #777777; /* Рамка серебрится */
+    background: #252525;
+    border-color: #777777;
     color: #ffffff;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.15); /* Мягкое белое свечение */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
 }
 
 .buttons i {
     position: absolute;
     left: 20px; 
     font-size: 24px;
-    color: #cccccc; /* Иконки тоже стали гармоничного серебристого цвета */
+    color: #cccccc;
 }
 
-/* Если хочешь, чтобы при наведении иконка становилась чисто белой */
 .buttons a:hover i {
     color: #ffffff;
 }
